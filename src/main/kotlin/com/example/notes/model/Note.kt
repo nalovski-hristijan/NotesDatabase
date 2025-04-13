@@ -8,6 +8,7 @@ import java.time.Instant
 @Document("notes")
 data class Note(
     @Id val id: ObjectId = ObjectId.get(),
+    val ownerId: ObjectId,
     val title: String,
     val content: String,
     val color: Long,
