@@ -10,7 +10,7 @@ import java.util.Date
 
 @Service
 class JwtService(
-    @Value("JWT_SECRET_BASE64") jwtSecret: String
+    @Value("\${jwt.secret}") jwtSecret: String
 ) {
     private val secretKey = Keys.hmacShaKeyFor(Base64.getDecoder().decode(jwtSecret))
     private val accessTokenValidityMs = 15L * 60L * 1000L
