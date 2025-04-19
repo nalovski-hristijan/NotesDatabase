@@ -3,6 +3,7 @@ package com.example.notes.controllers
 import com.example.notes.controllers.NoteController.NoteResponse
 import com.example.notes.model.Note
 import com.example.notes.database.repository.NoteRepository
+import jakarta.validation.constraints.NotBlank
 import org.bson.types.ObjectId
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
@@ -15,6 +16,7 @@ class NoteController(private val noteRepository: NoteRepository) {
 
     data class NoteRequest(
         val id: String?,
+        @field:NotBlank(message = "Title for the note is required")
         val title: String,
         val content: String,
         val color: Long
